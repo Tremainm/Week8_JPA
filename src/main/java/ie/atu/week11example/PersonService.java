@@ -4,15 +4,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PersonService {
-    private ProductRepository productRepository;
+    private PersonRepository personRepository;
 
-    public PersonService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
     // Placeholder method to save a person (add to Db in the next two weeks)
     public void savePerson(Person person) {
-        productRepository.save(person);
+        personRepository.save(person);
         System.out.println("Person saved: " + person);
     }
 
@@ -20,6 +20,6 @@ public class PersonService {
     public Person getPersonByEmployeeId(String employeeId) {
         // fetch data from a database in future lab
         // For simplicity, we return a dummy person here
-        return new Person();
+        return personRepository.findByEmployeeId(employeeId);
     }
 }
